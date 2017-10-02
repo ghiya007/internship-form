@@ -10,9 +10,10 @@ myApp.controller('MainCtrl', function ($scope, $http, msgConstants, validationSe
         blog: '', resume: '', intro: ''};
     that.result = angular.copy(defaultData);
     that.error = angular.copy(errorData);
-    that.showAlert = '';
+    that.showAlert = false;
     that.SuccessFailmessage = '';
     that.messageClass = '';
+    that.status = '';
 
     that.onSubmitForm = function () {
         var data = {};
@@ -80,22 +81,24 @@ myApp.controller('MainCtrl', function ($scope, $http, msgConstants, validationSe
         }).then(function(response) {  
             if(response.status ===  200){
                 that.showAlert = true;
-                that.SuccessFailmessage = "Internship Request Successful";
+                that.SuccessFailmessage = "  Your Internship request saved successful";
                 that.messageClass = 'alert-success';
                 that.result = angular.copy(defaultData);
+                that.status = 'Success';
                 
             }
             else{
                 that.showAlert = true;
-                that.SuccessFailmessage = "Data not Save on server!!!";
+                that.SuccessFailmessage = "  Data not Save on server!!!";
                 that.messageClass = 'alert-danger';
+                that.status = 'Error';
                 that.result = angular.copy(defaultData);
             }
         });
         
         that.onCloseAlert = function () {
                 that.showAlert = false;
-         };
+        };
     }
 
 });
