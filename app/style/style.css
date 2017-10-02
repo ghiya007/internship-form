@@ -1,0 +1,27 @@
+
+body {
+    background-color: #eee;
+}
+
+*[role="form"] {
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+.margin-0{
+    margin:0 auto !important;
+}
+
+.marg-top-15{
+    margin-top : 15px;
+}
+
+.color-red{
+    color:red;
+}

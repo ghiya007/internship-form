@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="app/vandor/js/angular.min.js"></script>
+
+        <link rel="stylesheet" href="app/style/style.css">
+        <script src="app/vandor/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="app/vandor/css/bootstrap.min.css">
+
+    </head>
+
+
+    <body ng-app="internshipApp">
+
+        <div ng-controller="MainCtrl as main">
+            <div class="container">
+                <div class="row marg-top-15">
+                    <div class="margin-0">
+                        <h1>Internship Form</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="col-md-8 margin-0">
+                    <div class="alert alert-success margin-0" role="alert" ng-show='main.showAlert'>
+                        <button type="button" class="close" ng-class="main.messageClass" data-dismiss="alert" aria-label="Close" ng-click="main.onCloseAlert()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="container">
+                <form class="form-horizontal" novalidate role="form">
+                    
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName" class="col-sm-6 control-label">Full Name<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" ng-model="main.result.name" placeholder="Full Name"  required>
+                                <span class="help-block color-red">{{main.error.name}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email" class="col-sm-6 control-label">Email<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="email"  placeholder="Email" ng-model="main.result.email"  required>
+                                <span class="help-block color-red">{{main.error.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="password" class="col-sm-6 control-label">Phone No.<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="number" ng-model="main.result.phone" placeholder="Phone Numbner" required>
+                                <span class="help-block color-red">{{main.error.phone}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="password" class="col-sm-6 control-label"> Git Hub Link<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" placeholder="github" ng-model="main.result.github" required>
+                                <span class="help-block color-red">{{main.error.github}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="password" class="col-sm-6 control-label"> Current Location<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control"  type="text"  placeholder="current Location" ng-model="main.result.current_location" required>
+                                <span class="help-block color-red">{{main.error.current_location}}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label class="col-sm-6 control-label">Resume Link<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" placeholder="resume Link"  ng-model="main.result.resume" required>
+                                <span class="help-block color-red">{{main.error.resume}}</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="password" class="col-sm-6 control-label">Your intro<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <textarea type="text"  placeholder="userIntro" class="form-control" ng-model="main.result.intro"></textarea>
+                                <span class="help-block color-red">{{main.error.intro}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="password" class="col-sm-6 control-label">Blog.<span class="color-red">*</span></label>
+                            <div class="col-sm-9">
+                                <textarea type="text" placeholder="blog" class="form-control" ng-model="main.result.blog" required></textarea>
+                                <span class="help-block color-red">{{main.error.blog}}</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- /.form-group -->
+                    <div class="row marg-top-15">
+                        <div class="form-group col-md-12">
+                            <div class="col-sm-4 margin-0 col-sm-offset-3">
+                                <button type="submit" ng-click="main.onSubmitForm()" class="btn btn-primary btn-block" >Submit </button>
+                            </div>
+                        </div>
+                    </div>
+                </form> <!-- /form -->
+            </div> <!-- ./container -->
+        </div>
+        <script src="app/script/controller/mainCtrl.js"></script>
+        <script src="app/script/constants/CONSTANTS.js"></script>
+        <script src="app/script/utility/validations.js"></script>
+
+    </body>
+</html>
