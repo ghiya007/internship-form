@@ -77,7 +77,7 @@ myApp.controller('MainCtrl', function ($scope, $http, msgConstants, validationSe
         $http({
             method: "POST",
             url: "http://elpisdesign.com/apply.php",
-            params: data,
+            args: JSON.stringify(data),,
         }).then(function(response) {  
             if(response.status ===  200){
                 that.showAlert = true;
